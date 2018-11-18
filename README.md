@@ -1,5 +1,34 @@
 # Project 2
 
+## Suggested Milestones
+- [ ] Research: Socket.IO (#Socket)
+- [ ] Better understand client-side JavaScript
+- [ ] Learn about [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). 
+- [ ] Complete the Display Name, Channel Creation, and Channel List steps.
+- [ ] Complete the Messages View and Sending Messages steps.
+- [ ] Complete the Remembering the Channel and Personal Touch steps.
+
+## ToDos
+**Display Name:**
+- [ ] 
+**Channel Creation:**
+- [ ]
+**Channel List:**
+- [ ]
+**Messages View:**
+- [ ]
+**Sending Messages:**
+- [ ]
+**Remembering the Channel:**
+- [ ]
+**Personal Touch:**
+- [ ]
+**README.md writeup:**
+- [ ]
+**requirements.txt**
+- [ ] Add all other packages to the requirements.txt file
+
+## Project Specs:
 **Display Name:**
 >When a user visits your web application for the first time, they should be prompted to type in a display name that will eventually be associated with every message the user sends. If a user closes the page and returns to your app later, the display name should still be remembered.
 **Channel Creation:**
@@ -22,3 +51,7 @@
 **Hints**
 >You shouldn’t need to use a database for this assignment. However, you should feel free to store any data you need in memory in your Flask application, as via using one or more global variables defined in application.py.
 >You will likely find that [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) will prove helpful for storing data client-side that will be saved across browser sessions.
+
+## Research
+
+### [Socket.io](#Socket)
