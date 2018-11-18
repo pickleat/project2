@@ -1,7 +1,7 @@
 # Project 2
 
 ## Suggested Milestones
-- [ ] Research: Socket.IO (#Socket)
+- [ ] Research: [Socket.IO](#Socket)
 - [ ] Better understand client-side JavaScript
 - [ ] Learn about [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). 
 - [ ] Complete the Display Name, Channel Creation, and Channel List steps.
@@ -25,13 +25,13 @@
 - [ ] something
 
 **Remembering the Channel:**
-- [ ]
+- [ ] something
 
 **Personal Touch:**
-- [ ]
+- [ ] something
 
 **README.md writeup:**
-- [ ]
+- [ ] something
 
 **requirements.txt**
 - [ ] Add all other packages to the requirements.txt file
@@ -62,4 +62,4 @@
 
 ## Research
 
-### [Socket.io](#Socket)
+### Socket
