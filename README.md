@@ -10,15 +10,15 @@
 
 ## ToDos
 **Display Name:**
-- [ ] 
+- [ ] something
 **Channel Creation:**
-- [ ]
+- [ ] something
 **Channel List:**
-- [ ]
+- [ ] something
 **Messages View:**
-- [ ]
+- [ ] something
 **Sending Messages:**
-- [ ]
+- [ ] something
 **Remembering the Channel:**
 - [ ]
 **Personal Touch:**
