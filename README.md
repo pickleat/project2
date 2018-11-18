@@ -2,8 +2,8 @@
 
 ## Suggested Milestones
 - [ ] Research: [Socket.IO](#Socket)
-- [ ] Better understand client-side JavaScript
-- [ ] Learn about [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). 
+- [ ] Better understand [client-side JavaScript](#Client-Side-JS)
+- [ ] Research [Local Storage](#Local-Storage)
 - [ ] Complete the Display Name, Channel Creation, and Channel List steps.
 - [ ] Complete the Messages View and Sending Messages steps.
 - [ ] Complete the Remembering the Channel and Personal Touch steps.
@@ -63,3 +63,10 @@
 ## Research
 
 ### Socket
+More stuff.
+
+### Client-Side-JS
+Research Goes here: 
+
+### Local-Storage
+[Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
