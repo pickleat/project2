@@ -2,8 +2,9 @@
 
 ## Suggested Milestones
 - [ ] Research: [Socket.IO](#Socket)
-- [ ] Better understand [client-side JavaScript](#Client-Side-JS)
+- [ ] Better understand [Client-ide JavaScript](#Client-Side-JS)
 - [ ] Research [Local Storage](#Local-Storage)
+- [ ] Make a wireframe for the app that gives a style to shoot for. 
 - [ ] Complete the Display Name, Channel Creation, and Channel List steps.
 - [ ] Complete the Messages View and Sending Messages steps.
 - [ ] Complete the Remembering the Channel and Personal Touch steps.
@@ -63,7 +64,17 @@
 ## Research
 
 ### Socket
-More stuff.
+[Socket.io Documentation](https://socket.io/docs/)
+[Flask/Socket Documentation](https://flask-socketio.readthedocs.io/en/latest/)
+
+- Gives instructions for:
+    - Initialization
+    - Recieving/Sending Messages
+    - Broadcasting
+    - Rooms
+    - Connection Events
+    - Other Functions
+    - Error Handling
 
 ### Client-Side-JS
 Research Goes here: 
