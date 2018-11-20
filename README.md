@@ -4,7 +4,6 @@
 - [ ] Research: [Socket.IO](#Socket)
 - [ ] Better understand [Client-side JavaScript](#Client-Side-JS)
 - [ ] Research [Local Storage](#Local-Storage)
-- [ ] Wireframe the Website
 - [ ] Make a wireframe for the app that gives a style to shoot for. 
 - [ ] Complete the Display Name, Channel Creation, and Channel List steps.
 - [ ] Complete the Messages View and Sending Messages steps.
@@ -80,8 +79,12 @@
 - This will be a great reference.
 - From this documentation, it feels like this will be a one-page site, with lots of different forms with values(or something else?) that trigger the ```@socketio.on('something')``` events.
 
-### Client-Side-JS
-Research Goes here:
+Seems like socket heavily relies on Flask, which is great since the last project was made on flask!
 
-### Local-Storage
-[Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+### Client-Side-JS
+Doesn't seem to be an easy guide or tutorial for client-side JS specifically. But here's what I did find: 
+[MDN-Client-Side-APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs)
+[MDN-Client-Side-Storage](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage)
+
+### [Local-Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+>The read-only localStorage property allows you to access a Storage object for the Document's origin; the stored data is saved across browser sessions. localStorage is similar to sessionStorage, except that while data stored in localStorage has no expiration time, data stored in sessionStorage gets cleared when the page session ends — that is, when the page is closed.
