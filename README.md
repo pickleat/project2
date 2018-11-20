@@ -92,3 +92,4 @@ Doesn't seem to be an easy guide or tutorial for client-side JS specifically. Bu
 [Web-Storage-API-MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
 
 ### Wireframe
+![Basic-WireFrame](https://raw.githubusercontent.com/pickleat/project2/master/Flack.png)
