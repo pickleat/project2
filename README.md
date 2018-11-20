@@ -1,10 +1,10 @@
 # Project 2
 
 ## Suggested Milestones
-- [ ] Research: [Socket.IO](#Socket)
+- [x] Research: [Socket.IO](#Socket)
 - [ ] Better understand [Client-side JavaScript](#Client-Side-JS)
 - [ ] Research [Local Storage](#Local-Storage)
-- [ ] Make a wireframe for the app that gives a style to shoot for. 
+- [x] Make a [wireframe](#wireframe) for the app that gives a style to shoot for.
 - [ ] Complete the Display Name, Channel Creation, and Channel List steps.
 - [ ] Complete the Messages View and Sending Messages steps.
 - [ ] Complete the Remembering the Channel and Personal Touch steps.
@@ -86,6 +86,9 @@ Doesn't seem to be an easy guide or tutorial for client-side JS specifically. Bu
 [MDN-Client-Side-APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs)
 [MDN-Client-Side-Storage](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage)
 
-### [Local-Storage]
+### Local-Storage
 [Local-Storage-MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 >The read-only localStorage property allows you to access a Storage object for the Document's origin; the stored data is saved across browser sessions. localStorage is similar to sessionStorage, except that while data stored in localStorage has no expiration time, data stored in sessionStorage gets cleared when the page session ends — that is, when the page is closed.
+[Web-Storage-API-MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+
+### Wireframe
