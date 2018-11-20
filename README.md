@@ -2,8 +2,9 @@
 
 ## Suggested Milestones
 - [ ] Research: [Socket.IO](#Socket)
-- [ ] Better understand [Client-ide JavaScript](#Client-Side-JS)
+- [ ] Better understand [Client-side JavaScript](#Client-Side-JS)
 - [ ] Research [Local Storage](#Local-Storage)
+- [ ] Wireframe the Website
 - [ ] Make a wireframe for the app that gives a style to shoot for. 
 - [ ] Complete the Display Name, Channel Creation, and Channel List steps.
 - [ ] Complete the Messages View and Sending Messages steps.
@@ -72,12 +73,15 @@
     - Recieving/Sending Messages
     - Broadcasting
     - Rooms
+        - if adding you need to add ```import join_room, leave_room```
     - Connection Events
     - Other Functions
     - Error Handling
+- This will be a great reference.
+- From this documentation, it feels like this will be a one-page site, with lots of different forms with values(or something else?) that trigger the ```@socketio.on('something')``` events.
 
 ### Client-Side-JS
-Research Goes here: 
+Research Goes here:
 
 ### Local-Storage
 [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
