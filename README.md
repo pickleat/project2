@@ -2,14 +2,18 @@
 
 ## Suggested Milestones
 - [x] Research: [Socket.IO](#Socket)
-- [ ] Better understand [Client-side JavaScript](#Client-Side-JS)
-- [ ] Research [Local Storage](#Local-Storage)
+- [x] Better understand [Client-side JavaScript](#Client-Side-JS). Put an x, but mostly because there weren't many resources. 
+- [x] Research [Local Storage](#Local-Storage). Set aside a few links for later reference.
 - [x] Make a [wireframe](#wireframe) for the app that gives a style to shoot for.
 - [ ] Complete the Display Name, Channel Creation, and Channel List steps.
 - [ ] Complete the Messages View and Sending Messages steps.
 - [ ] Complete the Remembering the Channel and Personal Touch steps.
 
 ## ToDos
+**Template Implementation**
+-[ ] Channel Name
+-[ ] Left Bar
+-[ ] Text Area
 **Display Name:**
 - [ ] something
 
@@ -85,6 +89,12 @@ Seems like socket heavily relies on Flask, which is great since the last project
 Doesn't seem to be an easy guide or tutorial for client-side JS specifically. But here's what I did find: 
 [MDN-Client-Side-APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs)
 [MDN-Client-Side-Storage](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage)
+[Document-Object-Model-MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+
+- Lots of good info here, explaining how the DOM works and what the pieces are called.
+    - ```Document``` an object referring to the page being loaded (?)
+    - ```element``` refers to an element or node returned by the DOM AP
+
 
 ### Local-Storage
 [Local-Storage-MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
@@ -93,3 +103,4 @@ Doesn't seem to be an easy guide or tutorial for client-side JS specifically. Bu
 
 ### Wireframe
 ![Basic-WireFrame](https://raw.githubusercontent.com/pickleat/project2/master/Flack.png)
+
