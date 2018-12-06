@@ -1,0 +1,33 @@
+body {
+  background-color: #2E3532;
+  color: #ffffff;
+}
+
+.current-channel {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  color: #ffffff;
+}
+
+.list-header {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  color: #CBF3F0;
+}
+
+.list {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: #2E3532;
+}
+
+#username {
+  font-family: "Raleway", sans-serif;
+  font-size: 36px;
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=main.css.map */

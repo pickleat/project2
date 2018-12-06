@@ -6,28 +6,101 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
-        <script src="{{ url_for('static', filename='index.js') }}"></script>
-        <title>Slack-ish</title>
+        <style>
+            /* $White: #ffffff;
+            $Blue-Green: #2EC4B6;
+            $Aero-Blue: #CBF3F0;
+            $Teal-Blue: #40798C;
+            $Jet: #2E3532; */
+            .header {
+                background: #2e3532;
+                color: #CBF3F0;
+                grid-area: header;
+                align-self: center;
+            }
+            .sidebar {
+                background: #2EC4B6;
+                grid-area: side;
+                border-right: 2px solid #ffffff;
+            }
+            .channel-title {
+                background: yellow;
+                color: black;
+                grid-area: channel;
+                border-bottom: 2px solid #ffffff;
+            }
+            .content {
+                background: salmon;
+                grid-area: content;
+            }
+            .username {
+                grid-area: username;
+                justify-self: end;
+                align-self: center;
+                background: #2e3532;
+                color: #CBF3F0;
+            }
+            .input {
+                grid-area: input;
+                background: salmon;
+                color: #2E3532;
+            }
+            .container {
+                width: auto;
+                min-height: 250px;
+                display: grid;
+                grid-template-columns: minmax(50px, 175px) 75%;
+                grid-template-rows: 40px 40px 1fr 40px;
+                grid-template-areas: 
+                    "header username"
+                    "side channel"
+                    "side content"
+                    "side input";
+                background-color: #2E3532;
+            }
+            #message {
+                font-family:Arial, Helvetica, sans-serif; 
+                height: 20px; 
+                width: 50%; 
+                border-radius: 5px;
+            }
+            div {
+                padding: 10px;
+                color: #ffffff;
+                font-family: Arial, Helvetica, sans-serif;
+                
+            }
+        </style>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Prompt user to pick a username. Prompt works, but local-storage does not.
+            var username = null;
+            if (username === null) {
+                username = prompt("choose a username:");
+                console.log(username);
+            }
+            var message = document.getElementById('message');
+            message.addEventListener("keydown", function (e) {
+                if (e.keyCode === 13) {
+                    validate(e);
+                }
+            });
+
+            function validate(e) {
+                // needs to be updated for socket.io to input the message into the content block
+                alert('Validated');
+            }
+
+        });
+        </script>
     </head>
-    <body>
-        <div>
-        <h1 class="current-channel">{% block heading %}{% endblock %}</h1>
-    <div>
-        {% block body %} 
-        {% if 'username' in session: %}
-        <p>Logged in as {{ session['username'] }} </p>
-        <a href="/signout">Signout</a>
-        {% else %}
-        <form method="POST">
-                <p><input type=text name=username placeholder="username">
-                <p><input type=submit value=username>
-            </form>
-        </p>
-        
-        <p>Click <a href="/login">Here</a> to login.</p>
-        {% endif %}
-        {% endblock %}
-    </div>
-        </div>
+    <body class="container">
+        <div class="header">Slack-<i>ish</i></div>
+        <div class="username"></div>
+        <div class="sidebar">Sidebar</div>
+        <div class="channel-title">Channel Title</div>
+        <div class="content">Content</div>
+        <div class="input"><input id="message" placeholder=" message"></input></div>
     </body>
+
 </html>

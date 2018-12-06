@@ -1,0 +1,37 @@
+$White: #ffffff;
+$Blue-Green: #2EC4B6;
+$Aero-Blue: #CBF3F0;
+$Teal-Blue: #40798C;
+$Jet: #2E3532;
+
+body {
+    background-color: $Jet;
+    color: $White;   
+}
+
+.current-channel {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: $White;
+}
+
+.list-header {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    color: $Aero-Blue;
+}
+
+.list {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: $Jet;  
+}
+
+#username {
+    font-family: 'Raleway', sans-serif;
+    font-size: 36px;
+    color: $White;
+}

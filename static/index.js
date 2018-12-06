@@ -1,8 +1,2 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // alert('youre here!')
-    username = document.getElementById('username');
-    if (username === null) {
-    } else {
-        alert("your username is {%s}", username);
-    }
-    });
+// cut script from html and uncomment the link to this page when you are done updating.
+

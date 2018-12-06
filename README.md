@@ -95,7 +95,6 @@ Doesn't seem to be an easy guide or tutorial for client-side JS specifically. Bu
     - ```Document``` an object referring to the page being loaded (?)
     - ```element``` refers to an element or node returned by the DOM AP
 
-
 ### Local-Storage
 [Local-Storage-MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 >The read-only localStorage property allows you to access a Storage object for the Document's origin; the stored data is saved across browser sessions. localStorage is similar to sessionStorage, except that while data stored in localStorage has no expiration time, data stored in sessionStorage gets cleared when the page session ends — that is, when the page is closed.
@@ -103,4 +102,3 @@ Doesn't seem to be an easy guide or tutorial for client-side JS specifically. Bu
 
 ### Wireframe
 ![Basic-WireFrame](https://raw.githubusercontent.com/pickleat/project2/master/Flack.png)
-
