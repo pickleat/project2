@@ -8,30 +8,35 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
 
+slackish = {'users': [], 'channels': []}
+users = []
 
-@app.route("/", methods=['GET', 'POST'])
-# def index():
-#     return (render_template("layout.html"))  
+@app.route("/")
+def index():
+    return render_template("layout.html")  
 
-# @app.route("/login", )
-def login():
-    # Sign in procedure, checks database for BOTH.
-    if request.method == 'POST':
-        session['username'] = request.form['username']
-        return render_template("layout.html")
+# @socketio.on('logged on')
+# def loggedOn(username):
+#     return render_template("layout.html", username=username)  
+
+@socketio.on('connection')
+def connect_handler(data, user):
+    users.append(user)
+    print(users)
+    emit('my response',
+            {'message': '{0} has joined'.format(user)},
+            broadcast=True)
+
+@socketio.on('channelCreation')
+def channelCreation(data):
+    # check if channel already exits, if not create a new channel
+    if data in slackish['channels']:
+        print('error')
     else: 
-        return render_template("layout.html")
+        slackish['channels'].append(data)
+        print('channel created')
 
-@app.route("/signout") #there's an issue with the route here, that is making it redirect to /signout insead of just back to the homepage. 
-def signout():
-    session.pop('username', None)
-    return render_template("layout.html")
-
-@socketio.on('connect')
-def connect_handler():
-    if current_user.is_authenticated:
-        emit('my response',
-             {'message': '{0} has joined'.format(current_user.name)},
-             broadcast=True)
-    else:
-        return False  # not allowed here
+# @app.route("/signout") #there's an issue with the route here, that is making it redirect to /signout insead of just back to the homepage. 
+# def signout():
+#     session.pop('username', None)
+#     return render_template("layout.html")
