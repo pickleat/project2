@@ -47,8 +47,9 @@
                 color: #2E3532;
             }
             .container {
-                width: auto;
-                min-height: 250px;
+                width: 100%;
+                min-height: 300px;
+                max-height: 100%;
                 display: grid;
                 grid-template-columns: minmax(50px, 175px) 75%;
                 grid-template-rows: 40px 40px 1fr 40px;
@@ -88,28 +89,69 @@
         document.addEventListener('DOMContentLoaded', () => {
             // allow user to choose their username and then save it to local storage. 
             // todo emit this information via sockets on connection to server announcing someone has joined the chat.
-            var user = localStorage.getItem('yoName');
-            if (user == null) {
-                var user = prompt('choose a username');
-                localStorage.setItem('yoName', user);
-            } 
-            document.getElementById('username').innerText = user;
             
-            
+            function reload() {
+                            location.reload();
+                        }
+
             var socket = io.connect('http://' + document.domain + ':' + location.port);
+            var user = localStorage.getItem('yoName');
             socket.on('connect', function() {
-                socket.emit('my response', {data: "I'm connected!"}, user);
-                console.log('connected');
-            });
+                console.log('connect');
+                if (user === 'null' || user === null) {
+                    node = document.createElement('input');
+                    node.setAttribute('placeholder', 'enter username')
+                    node.setAttribute('type', 'text');
+                    node.id = 'newUser'
+                    document.getElementById('username').append(node);
+                    sub = document.createElement('button');
+                    sub.setAttribute("type", "submit");
+                    sub.id = 'userSubmit';
+                    subText = document.createTextNode('Submit');
+                    sub.appendChild(subText);
+                    document.getElementById('username').append(sub);
+                    document.getElementById('userSubmit').addEventListener("click", function(){
+                        user = document.getElementById('newUser').value;
+                        localStorage.yoName = user;
+                        console.log('new user name is: ' + user);
+                        socket.emit('user joined', user);    
+                        reload();
+                    });
+                } else {
+                    user = localStorage.yoName;
+                    console.log('user name is: ' + user);
+                    textNode = document.createTextNode(user);
+                    document.getElementById('username').appendChild(textNode);
+                    socket.emit('user joined', user);
+                } 
+                });
+
+            // socket.on('new channel', function() {
+            //     document.getElementById('message').addEventListener('keydown', function(e) {
+            //         console.log(e);
+            //     });
+            // });
 
             var addChannel = document.getElementById('channelAdd')
             addChannel.onclick = () => {
-                var node = document.createElement('li');
                 var newChannel = prompt('channel name');
-                var textNode = document.createTextNode(newChannel);
-                node.appendChild(textNode);
-                document.getElementById('channelList').appendChild(node);
-            }
+                socket.emit('new channel', function() {
+                    // haven't made it here yet.
+                    console.log(newChannel);
+                    socket.emit('add new channel', newChannel);
+                });
+                socket.on('channels list', function(obj) {
+                    obj = JSON.parse(obj);
+                    thing = Object.keys(obj);
+                    for (i = 0; i < thing.length; i++) {
+                        var node = document.createElement('li');
+                        var textNode = document.createTextNode(thing[i]);
+                        node.appendChild(textNode);
+                        document.getElementById('channelList').appendChild(node);
+                    }
+
+                });
+            };
             
         });
         </script>
@@ -124,8 +166,9 @@
         </div>
         <div class="channel-title">Channel Title</div>
         <div class="content">Content</div>
-        <div class="thing"><input id="message" placeholder=" message"></input></div>
-        <a href="/">stuff</a>
+        <div class="thing"><form action="">
+            <input id="m" autocomplete="off" /><button>Send</button>
+          </form></div>
     </body>
 
 </html>
