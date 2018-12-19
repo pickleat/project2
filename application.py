@@ -3,40 +3,61 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 from flask import Flask, session, render_template, request, redirect, url_for, escape, flash
 from flask_session import Session
+import json
+
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
 
-slackish = {'users': [], 'channels': []}
 users = []
+slackish = {}
 
 @app.route("/")
 def index():
-    return render_template("layout.html")  
+    print('you made it to the homepage')
+    return render_template("layout.html")
 
-# @socketio.on('logged on')
-# def loggedOn(username):
-#     return render_template("layout.html", username=username)  
+@socketio.on('user joined')
+def connect(user):
+    if user not in users:
+        users.append(user)
+        print(user + ': has joined the room')
+        print(users)
+    if user in users: 
+        print(user + ': has re-joined the room')
+        print(users)
+    emit(user + ': has joined the room', broadcast=True)
+    
+@socketio.on('add new channel')
+def newChannel(channelName):
+    print(channelName)
+    # checks if channel already exists
+    if channelName in slackish.keys():
+        print('already a channel')
+    # creates new channel object
+    if channelName not in slackish.keys(): 
+        print('new channel created')
+        slackish[channelName] = {'messages': []}
+        obj = json.dumps(slackish)
+        print(obj)
+        emit('channels list', obj, broadcast=True)
+        
+        
 
-@socketio.on('connection')
-def connect_handler(data, user):
-    users.append(user)
-    print(users)
-    emit('my response',
-            {'message': '{0} has joined'.format(user)},
-            broadcast=True)
 
-@socketio.on('channelCreation')
-def channelCreation(data):
-    # check if channel already exits, if not create a new channel
-    if data in slackish['channels']:
-        print('error')
-    else: 
-        slackish['channels'].append(data)
-        print('channel created')
 
-# @app.route("/signout") #there's an issue with the route here, that is making it redirect to /signout insead of just back to the homepage. 
-# def signout():
-#     session.pop('username', None)
-#     return render_template("layout.html")
+# @socketio.on('new channel')
+# def channelCreation(data):
+#     print('made it to channel creation')
+#     # check if channel already exits, if not create a new channel
+#     if data in channels:
+#         print('channel name already used')
+#     else: 
+#         channels.append(data)
+#         print('channel created')
+
+# @socketio.on('message')
+# def printMessage(msg):
+#     print('message'+ msg)
+#     emit(msg, broadcast=True)
