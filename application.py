@@ -12,11 +12,14 @@ socketio = SocketIO(app)
 
 users = []
 slackish = {}
+channels = []
 
 @app.route("/")
 def index():
     print('you made it to the homepage')
     return render_template("layout.html")
+
+
 
 @socketio.on('user joined')
 def connect(user):
@@ -27,7 +30,11 @@ def connect(user):
     if user in users: 
         print(user + ': has re-joined the room')
         print(users)
+    obj = json.dumps(slackish)
+    print(obj)
+    emit('channels list', obj, broadcast=True)
     emit(user + ': has joined the room', broadcast=True)
+
     
 @socketio.on('add new channel')
 def newChannel(channelName):
@@ -44,7 +51,11 @@ def newChannel(channelName):
         emit('channels list', obj, broadcast=True)
         
         
-
+# @socketio.on('broadcast')
+# def everyting():
+#     obj = json.dumps(slackish)
+#     print(obj)
+#     emit('channels list', obj, broadcast=True)
 
 
 # @socketio.on('new channel')
