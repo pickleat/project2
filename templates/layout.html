@@ -13,6 +13,9 @@
             $Aero-Blue: #CBF3F0;
             $Teal-Blue: #40798C;
             $Jet: #2E3532; */
+            a {
+                color: white;
+            }
             .header {
                 background: #2e3532;
                 color: #CBF3F0;
@@ -78,6 +81,9 @@
             #channelList {
                 list-style: none;
             }
+            #channelName {
+                color: salmon;
+            }
             div {
                 padding: 10px;
                 color: #ffffff;
@@ -126,33 +132,40 @@
                 } 
                 });
 
-            // socket.on('new channel', function() {
-            //     document.getElementById('message').addEventListener('keydown', function(e) {
-            //         console.log(e);
-            //     });
-            // });
-
             var addChannel = document.getElementById('channelAdd')
             addChannel.onclick = () => {
                 var newChannel = prompt('channel name');
                 socket.emit('new channel', function() {
-                    // haven't made it here yet.
                     console.log(newChannel);
                     socket.emit('add new channel', newChannel);
                 });
-                socket.on('channels list', function(obj) {
+            };
+
+            socket.on('channels list', function(obj) {
                     obj = JSON.parse(obj);
                     thing = Object.keys(obj);
+                    // chanList = document.getElementsByClassName('channelName');
+                    // console.log(chanList);
                     for (i = 0; i < thing.length; i++) {
-                        var node = document.createElement('li');
+                        var li = document.createElement('li');
+                        // var button = document.createElement('button')
+                        // a.setAttribute('href', "/#"+thing[i]);
+                        li.className = "channelName"
+                        // li.appendChild(button);
                         var textNode = document.createTextNode(thing[i]);
-                        node.appendChild(textNode);
-                        document.getElementById('channelList').appendChild(node);
-                    }
+                        li.appendChild(textNode);
+                        // button.appendChild(textNode);
+                        document.getElementById('channelList').appendChild(li);
+                        }
+                    
 
+                    // Create hashlink for each item in the Channel List
+                    var chans = document.getElementsByClassName('channelName');                
+                    for (var j = 0; j < chans.length; j++) {
+                        chans[j].innerHTML = "<a href=#"+chans[j].innerText+">"+chans[j].innerText+"</a>"
+                    }
                 });
-            };
-            
+        
         });
         </script>
     </head>
@@ -165,7 +178,13 @@
             </ul>
         </div>
         <div class="channel-title">Channel Title</div>
-        <div class="content">Content</div>
+        <div class="content">Content
+            <!-- <ul>
+                <li>1</li>
+                <li>2</li>
+            </ul> -->
+
+        </div>
         <div class="thing"><form action="">
             <input id="m" autocomplete="off" /><button>Send</button>
           </form></div>
