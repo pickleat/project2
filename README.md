@@ -2,29 +2,46 @@
 
 ## Suggested Milestones
 - [x] Research: [Socket.IO](#Socket)
-- [x] Better understand [Client-side JavaScript](#Client-Side-JS). Put an x, but mostly because there weren't many resources. 
+- [x] Better understand [Client-side JavaScript](#Client-Side-JS). Put an x, but mostly because there weren't many resources. The Traversy Media crash-course was helpful once it all clicked.
 - [x] Research [Local Storage](#Local-Storage). Set aside a few links for later reference.
 - [x] Make a [wireframe](#wireframe) for the app that gives a style to shoot for.
-- [ ] Complete the Display Name, Channel Creation, and Channel List steps.
-- [ ] Complete the Messages View and Sending Messages steps.
-- [ ] Complete the Remembering the Channel and Personal Touch steps.
+
+### Stage 1
+- [x] Complete the Display Name
+- [x] Channel Creation
+- [ ] Channel List steps.
+### Stage 2
+- [ ] Complete the Messages View
+- [ ] Sending Messages
+### Stage 3
+- [ ] Complete the Remembering the Channel
+- [ ] Personal Touch steps.
 
 ## ToDos
 **Template Implementation**
--[ ] Channel Name
--[ ] Left Bar
--[ ] Text Area
+-[x] Channel Name
+-[x] Left Bar
+-[x] Text Area
 **Display Name:**
-- [ ] something
+> When a user visits your web application for the first time, they should be prompted to type in a display name that will eventually be associated with every message the user sends. If a user closes the page and returns to your app later, the display name should still be remembered.
+- [x] First Time choose a username, which will be stored in local storage.
+- [ ] The username needs to be associated with every message they send.
+    - [ ] Need to consider the data model of the app in order to best index into this information.
+- [x] If a user closes the page and returns later the username should be remembered.
 
 **Channel Creation:**
-- [ ] something
+> Any user should be able to create a new channel, so long as its name doesn’t conflict with the name of an existing channel.
+- [x] users can create new channels.
 
 **Channel List:**
-- [ ] something
+> Users should be able to see a list of all current channels, and selecting one should allow the user to view the channel. We leave it to you to decide how to display such a list.
+- [x] returns a list of all available channels.
+- [ ] allow user to select channel and have it display content of channel
 
 **Messages View:**
-- [ ] something
+> Once a channel is selected, the user should see any messages that have already been sent in that channel, up to a maximum of 100 messages. Your app should only store the 100 most recent messages per channel in server-side memory.
+- [ ] show only the last 100 messages in server-side memory.
+- [ ] think about how to limit the size of the data holding all the messages.
 
 **Sending Messages:**
 - [ ] something

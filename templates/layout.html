@@ -15,6 +15,7 @@
             $Jet: #2E3532; */
             a {
                 color: white;
+                font-family: Raleway;
             }
             .header {
                 background: #2e3532;
@@ -27,7 +28,7 @@
                 grid-area: side;
                 border-right: 2px solid #ffffff;
             }
-            .channel-title {
+            #channelTitle {
                 background: yellow;
                 color: black;
                 grid-area: channel;
@@ -97,9 +98,11 @@
             // todo emit this information via sockets on connection to server announcing someone has joined the chat.
             
             function reload() {
-                            location.reload();
-                        }
-
+                location.reload();
+            }
+            function choose(stuff) {
+                alert('You did NOT just click '+stuff);
+            }
             var socket = io.connect('http://' + document.domain + ':' + location.port);
             var user = localStorage.getItem('yoName');
             socket.on('connect', function() {
@@ -162,22 +165,41 @@
                     // Create hashlink for each item in the Channel List
                     var chans = document.getElementsByClassName('channelName');                
                     for (var j = 0; j < chans.length; j++) {
-                        chans[j].innerHTML = "<a href=#"+chans[j].innerText+">"+chans[j].innerText+"</a>"
+                        something = chans[j].innerHTML
+                        
+                        chans[j].innerHTML = "<a href=#"+something+">"+something+"</a>"
+                        // chans[j].innerHTML = something;
                     }
                 });
+              
+            
+            
+            var chans = document.getElementsByClassName('channelName');
+            chans.forEach(onclick = (e) => {
+                // check if the .innerText is correct. It currently sets the channelTitle to whatever is clicked in the entire window.
+                // console.log(e);
+                // console.log(document.location.hash[1]);
+                if (document.location.hash[1] === e.srcElement.innerHTML) {
+                    document.getElementById('channelTitle').innerText = e.srcElement.innerText;
+                }
+                console.log(e.srcElement.innerHTML)
+                
+
+            });
+
         
         });
         </script>
     </head>
     <body class="container">
-        <div class="header">Slack-<i>ish</i></div>
+        <a href="/" class="header">Slack-<i>ish</i></a>
         <div id="username"></div>
         <div class="sidebar">
             <div>Channel List <button id="channelAdd">+</button></div>
             <ul id="channelList">
             </ul>
         </div>
-        <div class="channel-title">Channel Title</div>
+        <div id="channelTitle">Click a Channel from the List</div>
         <div class="content">Content
             <!-- <ul>
                 <li>1</li>
